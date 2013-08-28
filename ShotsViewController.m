@@ -15,7 +15,7 @@
 
 @implementation ShotsViewController
 
-@synthesize tableView;
+@synthesize ourTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,16 +44,30 @@
     return 100.;
 }
 
-- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *shotCellIdentifier = @"shotCellIdentifier";
-    ShotCell *cell = (ShotCell*) [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
+    ShotCell *cell = (ShotCell*) [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier] ;
     
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ShotCell" owner:self options:nil] objectAtIndex:0];
     }
+    
+    [cell.colorView setBackgroundColor:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:55.0f/255.0f alpha:1.0f]];
+    [cell.shotLabel setText:[NSString stringWithFormat:@"%i", indexPath.row]];
+    
+    return cell;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 50;
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ShotsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
-    IBOutlet UITableView *tableView;
+    IBOutlet UITableView *ourTableView;
 }
 
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet UITableView *ourTableView;
 
 @end

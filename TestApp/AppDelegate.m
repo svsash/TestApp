@@ -12,6 +12,8 @@
 #import "FavoritesViewController.h"
 #import "SettingsViewController.h"
 
+#import "DownloadShots.h"
+
 @implementation AppDelegate
 
 - (void)dealloc
@@ -40,6 +42,9 @@
     self.window.rootViewController = self.tabBarController;
     [self.tabBarController setSelectedIndex:2];
     [self.window makeKeyAndVisible];
+    
+    [[DownloadShots sharedStorage] requestForShots];
+    
     return YES;
 }
 

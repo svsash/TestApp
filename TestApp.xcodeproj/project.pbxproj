@@ -28,6 +28,9 @@
 		8E6B5F4817CD29CC0047B63E /* FavoritesViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B5F4717CD29CC0047B63E /* FavoritesViewController_iPad.xib */; };
 		8E6B5F4D17CD3D0C0047B63E /* ShotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F4C17CD3D0C0047B63E /* ShotCell.m */; };
 		8E6B5F4F17CD3D3F0047B63E /* ShotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B5F4E17CD3D3E0047B63E /* ShotCell.xib */; };
+		8E6B5F7317CE7C090047B63E /* DownloadShots.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F7217CE7C090047B63E /* DownloadShots.m */; };
+		8E6B5F7617CE85EF0047B63E /* Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F7517CE85EF0047B63E /* Shot.m */; };
+		8E6B5F7917CE87450047B63E /* DataStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F7817CE87440047B63E /* DataStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,12 @@
 		8E6B5F4B17CD3D0C0047B63E /* ShotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotCell.h; sourceTree = "<group>"; };
 		8E6B5F4C17CD3D0C0047B63E /* ShotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotCell.m; sourceTree = "<group>"; };
 		8E6B5F4E17CD3D3E0047B63E /* ShotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShotCell.xib; sourceTree = "<group>"; };
+		8E6B5F7117CE7C090047B63E /* DownloadShots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadShots.h; sourceTree = "<group>"; };
+		8E6B5F7217CE7C090047B63E /* DownloadShots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadShots.m; sourceTree = "<group>"; };
+		8E6B5F7417CE85EF0047B63E /* Shot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shot.h; sourceTree = "<group>"; };
+		8E6B5F7517CE85EF0047B63E /* Shot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shot.m; sourceTree = "<group>"; };
+		8E6B5F7717CE87440047B63E /* DataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorage.h; sourceTree = "<group>"; };
+		8E6B5F7817CE87440047B63E /* DataStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +117,7 @@
 		8E6B5F0117CD254C0047B63E /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				8E6B5F6F17CE7BA60047B63E /* DataModal */,
 				8E6B5F4A17CD3CC00047B63E /* ShotCell */,
 				8E6B5F4917CD2A790047B63E /* ViewControllers */,
 				8E6B5F0A17CD254C0047B63E /* AppDelegate.h */,
@@ -158,6 +168,43 @@
 				8E6B5F4E17CD3D3E0047B63E /* ShotCell.xib */,
 			);
 			name = ShotCell;
+			sourceTree = "<group>";
+		};
+		8E6B5F6F17CE7BA60047B63E /* DataModal */ = {
+			isa = PBXGroup;
+			children = (
+				8E6B5F7017CE7BB90047B63E /* DownloadShots */,
+				8E6B5F7B17CE87630047B63E /* Shot */,
+				8E6B5F7A17CE874D0047B63E /* DataStarage */,
+			);
+			name = DataModal;
+			sourceTree = "<group>";
+		};
+		8E6B5F7017CE7BB90047B63E /* DownloadShots */ = {
+			isa = PBXGroup;
+			children = (
+				8E6B5F7117CE7C090047B63E /* DownloadShots.h */,
+				8E6B5F7217CE7C090047B63E /* DownloadShots.m */,
+			);
+			name = DownloadShots;
+			sourceTree = "<group>";
+		};
+		8E6B5F7A17CE874D0047B63E /* DataStarage */ = {
+			isa = PBXGroup;
+			children = (
+				8E6B5F7717CE87440047B63E /* DataStorage.h */,
+				8E6B5F7817CE87440047B63E /* DataStorage.m */,
+			);
+			name = DataStarage;
+			sourceTree = "<group>";
+		};
+		8E6B5F7B17CE87630047B63E /* Shot */ = {
+			isa = PBXGroup;
+			children = (
+				8E6B5F7417CE85EF0047B63E /* Shot.h */,
+				8E6B5F7517CE85EF0047B63E /* Shot.m */,
+			);
+			name = Shot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +285,9 @@
 				8E6B5F3E17CD27DA0047B63E /* FavoritesViewController.m in Sources */,
 				8E6B5F4317CD280B0047B63E /* SettingsViewController.m in Sources */,
 				8E6B5F4D17CD3D0C0047B63E /* ShotCell.m in Sources */,
+				8E6B5F7317CE7C090047B63E /* DownloadShots.m in Sources */,
+				8E6B5F7617CE85EF0047B63E /* Shot.m in Sources */,
+				8E6B5F7917CE87450047B63E /* DataStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
