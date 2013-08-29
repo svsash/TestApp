@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavoritesViewController : UIViewController
+#import "ShotCell.h"
+
+#import "DataStorage.h"
+
+@interface FavoritesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    IBOutlet UITableView *favoritesTableView;
+}
+
+@property (nonatomic, retain) IBOutlet UITableView *favoritesTableView;
 
 @end

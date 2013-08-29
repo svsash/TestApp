@@ -11,10 +11,12 @@
 @interface Shot : NSObject {
     NSString *shotTitle;
     NSString *shotImageUrl;
+    NSString *shotId;
 }
 
 @property (nonatomic, retain) NSString *shotTitle;
 @property (nonatomic, retain) NSString *shotImageUrl;
+@property (nonatomic, retain) NSString *shotId;
 
 + (Shot *) createShotFromDictionary:(NSDictionary *) dict;
 

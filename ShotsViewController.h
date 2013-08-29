@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AppDelegate.h" 
+
 @interface ShotsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     IBOutlet UITableView *ourTableView;
 }

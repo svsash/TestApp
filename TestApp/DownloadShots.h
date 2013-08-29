@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AppDelegate.h"
+
 @interface DownloadShots : NSObject {
     NSMutableData *deliveredData;
 }
 
 - (void) requestForShots;
-+ (DownloadShots *)sharedStorage;
++ (DownloadShots *)sharedData;
 
 @end

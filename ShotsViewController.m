@@ -9,7 +9,11 @@
 #import "ShotsViewController.h"
 #import "ShotCell.h" 
 
-@interface ShotsViewController ()
+
+
+@interface ShotsViewController (){
+    NSMutableArray  *shotsArray;
+}
 
 @end
 
@@ -22,16 +26,27 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self setupData];
     }
     return self;
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupData];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
+- (void) setupData
+{
+    AppDelegate *appDelegate = ((AppDelegate *)[[UIApplication sharedApplication] delegate]);
+
+    shotsArray = [[NSMutableArray alloc] initWithArray: appDelegate.shotsArray];
+}
 #pragma mark - TableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -41,7 +56,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100.;
+    return 300.;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,8 +68,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ShotCell" owner:self options:nil] objectAtIndex:0];
     }
     
-    [cell.colorView setBackgroundColor:[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:55.0f/255.0f alpha:1.0f]];
-    [cell.shotLabel setText:[NSString stringWithFormat:@"%i", indexPath.row]];
+    [cell setupCellWithShot:[shotsArray objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -66,7 +80,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 50;
+    return shotsArray.count;
 }
 
 - (void)didReceiveMemoryWarning

@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#import <CoreData/CoreData.h>
+
+#import "Shot.h"
+
+#import "Favorite.h"
+
 @interface DataStorage : NSObject
+
++ (DataStorage *)sharedDataStorage;
+
+- (Favorite *) createFavoriteFromShot: (Shot *)shot;
+
+- (NSArray *) getAllFavorites;
 
 @end

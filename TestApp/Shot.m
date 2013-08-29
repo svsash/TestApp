@@ -10,7 +10,7 @@
 
 @implementation Shot
 
-@synthesize shotTitle, shotImageUrl;
+@synthesize shotTitle, shotImageUrl, shotId;
 
 + (Shot *) createShotFromDictionary:(NSDictionary *) dict
 {
@@ -18,6 +18,7 @@
     
     shot.shotTitle = [dict objectForKey:@"title"];
     shot.shotImageUrl = [dict objectForKey:@"image_url"];
+    shot.shotId = [dict objectForKey:@"id"];
     
     return shot;
 }

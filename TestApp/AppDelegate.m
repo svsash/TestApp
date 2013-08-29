@@ -16,6 +16,8 @@
 
 @implementation AppDelegate
 
+@synthesize shotsArray;
+
 - (void)dealloc
 {
     [_window release];
@@ -43,7 +45,7 @@
     [self.tabBarController setSelectedIndex:2];
     [self.window makeKeyAndVisible];
     
-    [[DownloadShots sharedStorage] requestForShots];
+    [[DownloadShots sharedData] requestForShots];
     
     return YES;
 }

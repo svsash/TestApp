@@ -8,12 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Shot.h"
+
+#import "Favorite.h"
+
 @interface ShotCell : UITableViewCell {
-    IBOutlet UIView *colorView;
+    IBOutlet UIImageView *shotImageView;
+    
     IBOutlet UILabel *shotLabel;
+    
+    Shot *_shot;
 }
 
-@property (nonatomic, retain) IBOutlet UIView *colorView;
+@property (nonatomic, retain) IBOutlet UIImageView *shotImageView;
+
 @property (nonatomic, retain) IBOutlet UILabel *shotLabel;
+
+- (void) setupCellWithShot: (Shot *) shot;
+
+- (void) setupCellWithFavorite: (Favorite *) favorite;
+
+- (IBAction) addToFavoriteTouchUpInside:(id)sender;
 
 @end

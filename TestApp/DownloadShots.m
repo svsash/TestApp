@@ -14,7 +14,7 @@ static DownloadShots *_sharedData = nil;
 
 @implementation DownloadShots
 
-+ (DownloadShots *)sharedStorage
++ (DownloadShots *)sharedData
 {
     if (!_sharedData) {
         _sharedData = [[DownloadShots alloc] init];
@@ -63,7 +63,7 @@ static DownloadShots *_sharedData = nil;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [[DownloadShots sharedStorage] downloadFinished];
+    [[DownloadShots sharedData] downloadFinished];
 }
 
 -(void)downloadFinished
@@ -76,13 +76,24 @@ static DownloadShots *_sharedData = nil;
     
     NSArray *shots = [json objectForKey:@"shots"];
     
+    AppDelegate *appDelegate = ((AppDelegate *)[[UIApplication sharedApplication] delegate]);
+    
+    if (!appDelegate.shotsArray) {
+        appDelegate.shotsArray = [[NSMutableArray alloc] init];
+    }else{
+        [appDelegate.shotsArray removeAllObjects];
+    }
+    
     for (int i = 0; i < shots.count; i++) {
-        NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:[[shots objectAtIndex:i] objectForKey:@"title"], @"title", [[shots objectAtIndex:i] objectForKey:@"image_url"], @"image_url", nil];
+        NSDictionary *dict = [[NSDictionary alloc]initWithObjectsAndKeys:
+                              [[shots objectAtIndex:i] objectForKey:@"title"], @"title",
+                              [[shots objectAtIndex:i] objectForKey:@"id"], @"id",
+                              [[shots objectAtIndex:i] objectForKey:@"image_url"], @"image_url", nil];
+        
         Shot * newShot = [Shot createShotFromDictionary:dict];
         
-        NSLog(@"newShot.shotTitle: %@", newShot.shotTitle);
-        
-        NSLog(@"newShot.shotImageUrl: %@", newShot.shotImageUrl);
+        [appDelegate.shotsArray addObject:newShot];
     }
+    NSLog(@"appDelegate.shotsArray: %@", appDelegate.shotsArray);
 }
 @end

@@ -31,6 +31,8 @@
 		8E6B5F7317CE7C090047B63E /* DownloadShots.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F7217CE7C090047B63E /* DownloadShots.m */; };
 		8E6B5F7617CE85EF0047B63E /* Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F7517CE85EF0047B63E /* Shot.m */; };
 		8E6B5F7917CE87450047B63E /* DataStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F7817CE87440047B63E /* DataStorage.m */; };
+		8E6B5F8117CFB88F0047B63E /* dribbble_model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F7F17CFB88E0047B63E /* dribbble_model.xcdatamodeld */; };
+		8E6B5F8417CFBA1C0047B63E /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5F8317CFBA1B0047B63E /* Favorite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,9 @@
 		8E6B5F7517CE85EF0047B63E /* Shot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shot.m; sourceTree = "<group>"; };
 		8E6B5F7717CE87440047B63E /* DataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorage.h; sourceTree = "<group>"; };
 		8E6B5F7817CE87440047B63E /* DataStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorage.m; sourceTree = "<group>"; };
+		8E6B5F8017CFB88F0047B63E /* dribbble_model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dribbble_model.xcdatamodel; sourceTree = "<group>"; };
+		8E6B5F8217CFBA1B0047B63E /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		8E6B5F8317CFBA1B0047B63E /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +181,7 @@
 				8E6B5F7017CE7BB90047B63E /* DownloadShots */,
 				8E6B5F7B17CE87630047B63E /* Shot */,
 				8E6B5F7A17CE874D0047B63E /* DataStarage */,
+				8E6B5F8517CFBA2F0047B63E /* CoreData */,
 			);
 			name = DataModal;
 			sourceTree = "<group>";
@@ -205,6 +211,24 @@
 				8E6B5F7517CE85EF0047B63E /* Shot.m */,
 			);
 			name = Shot;
+			sourceTree = "<group>";
+		};
+		8E6B5F8517CFBA2F0047B63E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8E6B5F8617CFBA400047B63E /* Favorite */,
+				8E6B5F7F17CFB88E0047B63E /* dribbble_model.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		8E6B5F8617CFBA400047B63E /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				8E6B5F8217CFBA1B0047B63E /* Favorite.h */,
+				8E6B5F8317CFBA1B0047B63E /* Favorite.m */,
+			);
+			name = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +312,8 @@
 				8E6B5F7317CE7C090047B63E /* DownloadShots.m in Sources */,
 				8E6B5F7617CE85EF0047B63E /* Shot.m in Sources */,
 				8E6B5F7917CE87450047B63E /* DataStorage.m in Sources */,
+				8E6B5F8117CFB88F0047B63E /* dribbble_model.xcdatamodeld in Sources */,
+				8E6B5F8417CFBA1C0047B63E /* Favorite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +432,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8E6B5F7F17CFB88E0047B63E /* dribbble_model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8E6B5F8017CFB88F0047B63E /* dribbble_model.xcdatamodel */,
+			);
+			currentVersion = 8E6B5F8017CFB88F0047B63E /* dribbble_model.xcdatamodel */;
+			path = dribbble_model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8E6B5EF017CD254C0047B63E /* Project object */;
 }
