@@ -28,6 +28,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
+    [[DownloadShots sharedData] requestForShots];
+    
     // Override point for customization after application launch.
     UIViewController *shotsVC, *favoritesVC, *settingsVC;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -42,10 +45,8 @@
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
     [self.tabBarController setViewControllers:[NSArray arrayWithObjects:shotsVC, favoritesVC, settingsVC, nil]];
     self.window.rootViewController = self.tabBarController;
-    [self.tabBarController setSelectedIndex:2];
+    [self.tabBarController setSelectedIndex:1];
     [self.window makeKeyAndVisible];
-    
-    [[DownloadShots sharedData] requestForShots];
     
     return YES;
 }
@@ -58,7 +59,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -78,17 +79,17 @@
 }
 
 /*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-}
-*/
+ // Optional UITabBarControllerDelegate method.
+ - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+ {
+ }
+ */
 
 /*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
-{
-}
-*/
+ // Optional UITabBarControllerDelegate method.
+ - (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
+ {
+ }
+ */
 
 @end

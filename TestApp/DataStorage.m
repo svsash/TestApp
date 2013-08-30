@@ -46,6 +46,17 @@ static DataStorage *_sharedDataStorage = nil;
     return nil;
 }
 
+- (void) removeFavorite:(Favorite *)favorite
+{
+    [favorite.managedObjectContext deleteObject:favorite];
+    
+    //    [self.managedObjectContext deleteObject: favorite];
+    //    NSError *error = nil;
+    //    if (![self.managedObjectContext save:&error])
+    //    {
+    //    }
+}
+
 - (BOOL) hasDataBaseShotID: (NSString *) shotId
 {
     NSArray *allFavorites = [self getAllFavorites];
@@ -68,12 +79,6 @@ static DataStorage *_sharedDataStorage = nil;
     
     [request setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"favId" ascending:YES];
-    
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    
-    [request setSortDescriptors:sortDescriptors];
-    
     NSError *error = nil;
     
     NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
@@ -83,7 +88,7 @@ static DataStorage *_sharedDataStorage = nil;
         // Handle the error.
         
     }
-    return mutableFetchResults;
+    return [NSArray arrayWithArray:mutableFetchResults];
 }
 
 #pragma mark - Core Data stack
@@ -106,8 +111,6 @@ static DataStorage *_sharedDataStorage = nil;
     }
 }
 
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (_managedObjectContext != nil) {

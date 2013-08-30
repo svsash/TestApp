@@ -10,4 +10,6 @@
 
 @interface SettingsViewController : UIViewController
 
+- (IBAction) gotoRepoButtonTouchUpInside:(id)sender;
+
 @end

@@ -8,12 +8,6 @@
 
 #import "FavoritesViewController.h"
 
-@interface FavoritesViewController ()
-{
-    NSMutableArray *favoritesArray;
-}
-@end
-
 @implementation FavoritesViewController
 
 @synthesize favoritesTableView;
@@ -23,23 +17,17 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self setupData];
+        [self addNotifications];
     }
     return self;
 }
 
-- (void) setupData
+- (void) addNotifications
 {
-    favoritesArray = [[NSMutableArray alloc] init];
-    if (favoritesArray <= 0) {
-        favoritesArray = [NSMutableArray arrayWithArray:[[DataStorage sharedDataStorage] getAllFavorites]];
-//    }else{
-//        if (favoritesArray.count > 0) {
-//        [favoritesArray removeAllObjects];
-//        }
-       
-//        favoritesArray = [NSMutableArray arrayWithArray:[[DataStorage sharedDataStorage] getAllFavorites]];
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable)
+                                                 name:@"RemoveFavoriteNeedReloadTable"
+                                               object:nil];
 }
 
 - (void)viewDidLoad
@@ -51,15 +39,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setupData];
+    [self reloadTable];
+}
+
+- (void) reloadTable
+{
+    [favoritesTableView reloadData];
 }
 
 #pragma mark - TableView Delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"%i %i", indexPath.section, indexPath.row);
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -75,7 +63,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ShotCell" owner:self options:nil] objectAtIndex:0];
     }
     
-    [cell setupCellWithFavorite:[favoritesArray objectAtIndex:indexPath.row]];
+    [cell setupCellWithFavorite:[[[DataStorage sharedDataStorage] getAllFavorites] objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -85,11 +73,19 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return favoritesArray.count;
+    int count = [[[DataStorage sharedDataStorage] getAllFavorites] count];
+    return count;
 }
 
+#pragma mark - memory
+
+- (void) dealloc
+{
+    [favoritesTableView release];
+    [super dealloc];
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -151,8 +151,8 @@
 			children = (
 				8E6B5F3417CD26D60047B63E /* ShotsViewController.h */,
 				8E6B5F3517CD26D60047B63E /* ShotsViewController.m */,
-				8E6B5F3917CD27600047B63E /* ShotsViewController_iPad.xib */,
 				8E6B5F3617CD26D60047B63E /* ShotsViewController_iPhone.xib */,
+				8E6B5F3917CD27600047B63E /* ShotsViewController_iPad.xib */,
 				8E6B5F3B17CD27DA0047B63E /* FavoritesViewController.h */,
 				8E6B5F3C17CD27DA0047B63E /* FavoritesViewController.m */,
 				8E6B5F3D17CD27DA0047B63E /* FavoritesViewController_iPhone.xib */,
@@ -430,6 +430,7 @@
 				8E6B5F3117CD254D0047B63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

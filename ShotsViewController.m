@@ -7,9 +7,7 @@
 //
 
 #import "ShotsViewController.h"
-#import "ShotCell.h" 
-
-
+#import "ShotCell.h"
 
 @interface ShotsViewController (){
     NSMutableArray  *shotsArray;
@@ -44,15 +42,10 @@
 - (void) setupData
 {
     AppDelegate *appDelegate = ((AppDelegate *)[[UIApplication sharedApplication] delegate]);
-
+    
     shotsArray = [[NSMutableArray alloc] initWithArray: appDelegate.shotsArray];
 }
 #pragma mark - TableView Delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"%i %i", indexPath.section, indexPath.row);
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -81,6 +74,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return shotsArray.count;
+}
+
+#pragma mark - memory
+
+- (void) dealloc
+{
+    [ourTableView release];
+    [shotsArray release];
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

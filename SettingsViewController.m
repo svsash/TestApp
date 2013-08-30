@@ -29,6 +29,13 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (IBAction) gotoRepoButtonTouchUpInside:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://github.com/svsash/testApp"]];
+}
+
+#pragma mark - memry
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

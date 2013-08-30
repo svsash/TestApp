@@ -20,6 +20,8 @@
 
 - (Favorite *) createFavoriteFromShot: (Shot *)shot;
 
+- (void) removeFavorite:(Favorite *)favorite;
+
 - (NSArray *) getAllFavorites;
 
 @end
